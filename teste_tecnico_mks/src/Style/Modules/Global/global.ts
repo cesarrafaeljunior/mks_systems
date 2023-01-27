@@ -36,6 +36,8 @@ const GlobalStyle = createGlobalStyle`
     --fontSiCartInformations: 28px;
 }
 
+
+
 body {
     width: 100%;
     height: 100%;

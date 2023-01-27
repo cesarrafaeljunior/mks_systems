@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { Header } from "../../Components/Header";
 import { instaceAxios } from "../../services/axios/Instance";
+import { SectionStyled } from "./Main";
 
 const MainPage = () => {
   const [productsArray, setProducts] = useState([]);
@@ -21,9 +23,9 @@ const MainPage = () => {
   // console.log(productsArray);
 
   return (
-    <div>
-      <h1>Main Page</h1>
-    </div>
+    <SectionStyled>
+      <Header />
+    </SectionStyled>
   );
 };
 
