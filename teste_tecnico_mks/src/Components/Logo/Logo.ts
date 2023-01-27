@@ -8,6 +8,7 @@ const LogoStyled = styled.h1`
 
   font-weight: var(--fontWeSemiBold);
   font-size: ${fontSizeLogo};
+  font-style: normal;
 `;
 
 const SubLogoStyled = styled.h2`
