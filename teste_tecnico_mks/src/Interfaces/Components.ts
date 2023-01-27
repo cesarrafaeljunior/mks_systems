@@ -21,3 +21,10 @@ export interface IDivFlexComponent {
   justifyContent?: string;
   gap?: string;
 }
+
+export interface IIconsComponent {
+  width?: string;
+  height?: string;
+  color?: string;
+  backgroundcolor?: string;
+}

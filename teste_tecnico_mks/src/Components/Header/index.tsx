@@ -1,5 +1,7 @@
+import { IoMdCart } from "react-icons/io";
 import { ButtonStyled } from "../Common/Buttons/Buttons";
 import { DivFlex } from "../Common/Divs/DivFlex";
+import { IconStyled } from "../Common/Icons/Icons";
 import { Logo, SubLogo } from "../Logo";
 import { HeaderStyled } from "./Header";
 
@@ -13,16 +15,21 @@ const Header = () => {
       <ButtonStyled
         display="flex"
         alignItems="center"
-        height="1.6em"
-        padding="1em"
+        justifyContent="center"
+        gap="10px"
+        height="1.9em"
+        padding="0.7em"
         backgroundcolor="white"
         borderRadius="8px"
         bordercolor="white"
         color="black"
-        fontSize="0.7"
+        fontSize="1.2em"
         fontWeigth="fontWeSemiBold"
       >
-        Carrinho
+        <IconStyled width="20px" height="20px" color="black">
+          <IoMdCart className="icon" />
+        </IconStyled>
+        0
       </ButtonStyled>
     </HeaderStyled>
   );
