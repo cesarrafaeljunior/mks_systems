@@ -13,6 +13,7 @@ import { ButtonStyled } from "../../Components/Common/Buttons/Button";
 import { IconStyled } from "../../Components/Common/Icons/Icons";
 import { RiShoppingBag3Line } from "react-icons/ri";
 import { Footer } from "../../Components/Footer";
+import { Cart } from "../../Components/Cart";
 
 const MainPage = () => {
   const [productsArray, setProducts] = useState([]);
@@ -35,6 +36,38 @@ const MainPage = () => {
 
   return (
     <>
+      <Cart>
+        <ButtonStyled
+          width="content"
+          height="content"
+          backgroundcolor="black"
+          color="white"
+          padding="5px 10px"
+          borderRadius="100%"
+          textAlign="center"
+          fontSize="20px"
+          position="absolute"
+          top="1.2em"
+          right="0.5em"
+          bordercolor="black"
+          hover="greyScale4"
+        >
+          X
+        </ButtonStyled>
+        <Card>
+          <TitleProduct nameProduct="Apple Watch Series 4 gps" />
+          <PriceProduct priceProduct="R$399" />
+          <ButtonStyled
+            fontSize="25px"
+            fontWeigth="fontWeMedium"
+            position="absolute"
+            top="0.2em"
+            right="0.5em"
+          >
+            X
+          </ButtonStyled>
+        </Card>
+      </Cart>
       <SectionStyled>
         <Header />
       </SectionStyled>

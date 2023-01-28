@@ -9,6 +9,10 @@ const CardStyled = styled.li`
 
   max-width: 251px;
 
+  position: relative;
+
+  z-index: -1;
+
   padding: 1.2em;
 
   background-color: var(--white);
