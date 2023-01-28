@@ -12,6 +12,7 @@ import { SectionStyled } from "./Main";
 import { ButtonStyled } from "../../Components/Common/Buttons/Button";
 import { IconStyled } from "../../Components/Common/Icons/Icons";
 import { RiShoppingBag3Line } from "react-icons/ri";
+import { Footer } from "../../Components/Footer";
 
 const MainPage = () => {
   const [productsArray, setProducts] = useState([]);
@@ -252,6 +253,9 @@ const MainPage = () => {
             </List>
           </DivFlex>
         </Main>
+        <SectionStyled>
+          <Footer />
+        </SectionStyled>
       </SectionStyled>
     </>
   );
