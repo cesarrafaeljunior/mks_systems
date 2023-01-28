@@ -24,6 +24,7 @@ const Header = () => {
         color="black"
         fontSize="1.2em"
         fontWeigth="fontWeSemiBold"
+        hover="greyScale2"
       >
         <IconStyled width="20px" height="20px" color="black">
           <IoMdCart className="icon" />

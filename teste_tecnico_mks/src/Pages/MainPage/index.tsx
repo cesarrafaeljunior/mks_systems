@@ -8,7 +8,7 @@ import { Header } from "../../Components/Header";
 import { List } from "../../Components/List";
 import { Main } from "../../Components/Main";
 import { instaceAxios } from "../../services/axios/Instance";
-import { SectionStyled } from "./Main";
+import { SectionFooter, SectionStyled } from "./Main";
 import { ButtonStyled } from "../../Components/Common/Buttons/Button";
 import { IconStyled } from "../../Components/Common/Icons/Icons";
 import { RiShoppingBag3Line } from "react-icons/ri";
@@ -57,10 +57,12 @@ const MainPage = () => {
                   margin="4px 0 -20px 0"
                   padding="10px"
                   backgroundcolor="colorPrimary"
+                  bordercolor="colorPrimary"
                   color="white"
                   borderRadius="0 0 8px 8px"
                   fontSize="1.1em"
                   fontWeigth="fontWeSemiBold"
+                  hover="colorPrimaryHover"
                 >
                   <IconStyled width="25px" height="22px" color="white">
                     <RiShoppingBag3Line className="icon" />
@@ -83,10 +85,12 @@ const MainPage = () => {
                   margin="4px 0 -20px 0"
                   padding="10px"
                   backgroundcolor="colorPrimary"
+                  bordercolor="colorPrimary"
                   color="white"
                   borderRadius="0 0 8px 8px"
                   fontSize="1.1em"
                   fontWeigth="fontWeSemiBold"
+                  hover="colorPrimaryHover"
                 >
                   <IconStyled width="25px" height="22px" color="white">
                     <RiShoppingBag3Line className="icon" />
@@ -109,10 +113,12 @@ const MainPage = () => {
                   margin="4px 0 -20px 0"
                   padding="10px"
                   backgroundcolor="colorPrimary"
+                  bordercolor="colorPrimary"
                   color="white"
                   borderRadius="0 0 8px 8px"
                   fontSize="1.1em"
                   fontWeigth="fontWeSemiBold"
+                  hover="colorPrimaryHover"
                 >
                   <IconStyled width="25px" height="22px" color="white">
                     <RiShoppingBag3Line className="icon" />
@@ -135,10 +141,12 @@ const MainPage = () => {
                   margin="4px 0 -20px 0"
                   padding="10px"
                   backgroundcolor="colorPrimary"
+                  bordercolor="colorPrimary"
                   color="white"
                   borderRadius="0 0 8px 8px"
                   fontSize="1.1em"
                   fontWeigth="fontWeSemiBold"
+                  hover="colorPrimaryHover"
                 >
                   <IconStyled width="25px" height="22px" color="white">
                     <RiShoppingBag3Line className="icon" />
@@ -161,10 +169,12 @@ const MainPage = () => {
                   margin="4px 0 -20px 0"
                   padding="10px"
                   backgroundcolor="colorPrimary"
+                  bordercolor="colorPrimary"
                   color="white"
                   borderRadius="0 0 8px 8px"
                   fontSize="1.1em"
                   fontWeigth="fontWeSemiBold"
+                  hover="colorPrimaryHover"
                 >
                   <IconStyled width="25px" height="22px" color="white">
                     <RiShoppingBag3Line className="icon" />
@@ -187,10 +197,12 @@ const MainPage = () => {
                   margin="4px 0 -20px 0"
                   padding="10px"
                   backgroundcolor="colorPrimary"
+                  bordercolor="colorPrimary"
                   color="white"
                   borderRadius="0 0 8px 8px"
                   fontSize="1.1em"
                   fontWeigth="fontWeSemiBold"
+                  hover="colorPrimaryHover"
                 >
                   <IconStyled width="25px" height="22px" color="white">
                     <RiShoppingBag3Line className="icon" />
@@ -213,10 +225,12 @@ const MainPage = () => {
                   margin="4px 0 -20px 0"
                   padding="10px"
                   backgroundcolor="colorPrimary"
+                  bordercolor="colorPrimary"
                   color="white"
                   borderRadius="0 0 8px 8px"
                   fontSize="1.1em"
                   fontWeigth="fontWeSemiBold"
+                  hover="colorPrimaryHover"
                 >
                   <IconStyled width="25px" height="22px" color="white">
                     <RiShoppingBag3Line className="icon" />
@@ -239,10 +253,12 @@ const MainPage = () => {
                   margin="4px 0 -20px 0"
                   padding="10px"
                   backgroundcolor="colorPrimary"
+                  bordercolor="colorPrimary"
                   color="white"
                   borderRadius="0 0 8px 8px"
                   fontSize="1.1em"
                   fontWeigth="fontWeSemiBold"
+                  hover="colorPrimaryHover"
                 >
                   <IconStyled width="25px" height="22px" color="white">
                     <RiShoppingBag3Line className="icon" />
@@ -253,10 +269,10 @@ const MainPage = () => {
             </List>
           </DivFlex>
         </Main>
-        <SectionStyled>
-          <Footer />
-        </SectionStyled>
       </SectionStyled>
+      <SectionFooter>
+        <Footer />
+      </SectionFooter>
     </>
   );
 };
