@@ -6,6 +6,7 @@ export interface IButtonComponent {
   width?: string;
   maxWidth?: string;
   height?: string;
+  margin?: string;
   padding?: string;
   backgroundcolor?: string;
   borderRadius?: string;

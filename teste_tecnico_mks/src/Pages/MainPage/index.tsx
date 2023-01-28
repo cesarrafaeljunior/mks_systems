@@ -42,15 +42,18 @@ const MainPage = () => {
           <DivFlex alignItems="center" justifyContent="center">
             <List>
               <Card>
-                <TitleProduct nameProduct="Apple Watch Series 4 GPS" />
-                <PriceProduct priceProduct="R$399" />
+                <DivFlex gap="8%">
+                  <TitleProduct nameProduct="Apple Watch Series 4 GPS" />
+                  <PriceProduct priceProduct="R$399" />
+                </DivFlex>
                 <DescriptionProduct descriptionProduct="Redesign from scratch and completely revised" />
                 <ButtonStyled
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
                   gap="0.6em"
-                  width="100%"
+                  width="calc(100% + 40px)"
+                  margin="4px 0 -20px 0"
                   padding="10px"
                   backgroundcolor="colorPrimary"
                   color="white"
@@ -71,5 +74,4 @@ const MainPage = () => {
     </>
   );
 };
-
 export { MainPage };

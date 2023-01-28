@@ -11,11 +11,13 @@ const ButtonStyled = styled.button<IButtonComponent>`
   max-width: ${({ maxWidth }) => `${maxWidth}`};
   height: ${({ height }) => `${height}`};
 
+  margin: ${({ margin }) => `${margin}`};
   padding: ${({ padding }) => `${padding}`};
 
   background-color: ${({ backgroundcolor }) => `var(--${backgroundcolor})`};
   border: solid 2px ${({ bordercolor }) => `var(--${bordercolor})`};
   border-radius: ${({ borderRadius }) => `${borderRadius}`};
+
   color: ${({ color }) => `var(--${color})`};
 
   font-size: ${({ fontSize }) => `${fontSize}`};
