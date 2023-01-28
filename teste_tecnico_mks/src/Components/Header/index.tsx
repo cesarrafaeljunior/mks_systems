@@ -1,5 +1,5 @@
 import { IoMdCart } from "react-icons/io";
-import { ButtonStyled } from "../Common/Buttons/Buttons";
+import { ButtonStyled } from "../Common/Buttons/Button";
 import { DivFlex } from "../Common/Divs/DivFlex";
 import { IconStyled } from "../Common/Icons/Icons";
 import { Logo, SubLogo } from "../Logo";

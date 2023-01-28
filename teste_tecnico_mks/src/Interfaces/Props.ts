@@ -5,4 +5,5 @@ export interface IPropsChildren {
 export interface IPropsProductInformations {
   nameProduct?: string;
   priceProduct?: string;
+  descriptionProduct?: string;
 }

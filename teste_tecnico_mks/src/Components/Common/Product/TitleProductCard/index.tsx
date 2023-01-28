@@ -1,4 +1,4 @@
-import { IPropsProductInformations } from "../../../Interfaces/Props";
+import { IPropsProductInformations } from "../../../../Interfaces/Props";
 import { TitleProductStyled } from "./Title";
 
 const TitleProduct = ({ nameProduct }: IPropsProductInformations) => {

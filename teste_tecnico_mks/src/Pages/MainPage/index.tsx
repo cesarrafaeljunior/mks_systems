@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Card } from "../../Components/Card";
+import { DescriptionProduct } from "../../Components/Common/Product/DescriptionProducts";
 import { DivFlex } from "../../Components/Common/Divs/DivFlex";
-import { PriceProduct } from "../../Components/Common/PriceProduct";
-import { TitleProduct } from "../../Components/Common/TitleProductCard";
+import { PriceProduct } from "../../Components/Common/Product/PriceProduct";
+import { TitleProduct } from "../../Components/Common/Product/TitleProductCard";
 import { Header } from "../../Components/Header";
 import { List } from "../../Components/List";
 import { Main } from "../../Components/Main";
@@ -40,6 +41,7 @@ const MainPage = () => {
               <Card>
                 <TitleProduct nameProduct="Apple Watch Series 4 GPS" />
                 <PriceProduct priceProduct="R$399" />
+                <DescriptionProduct descriptionProduct="Redesign from scratch and completely revised" />
               </Card>
             </List>
           </DivFlex>
