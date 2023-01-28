@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
 const ListStyled = styled.ul`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 90%;
-  height: 100%;
   max-width: 1200px;
-  border: solid 1px red;
+  height: 100%;
 `;
 
 export { ListStyled };
