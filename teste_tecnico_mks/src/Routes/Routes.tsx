@@ -4,8 +4,8 @@ import { MainPage } from "../Pages/MainPage";
 const RoutesMain = () => {
   return (
     <Routes>
-      <Route path="*" element={<Navigate to="mainPage" />} />
-      <Route path="mainPage" element={<MainPage />} />
+      <Route path="*" element={<Navigate to="/mainPage" />} />
+      <Route path="/mainPage" element={<MainPage />} />
     </Routes>
   );
 };
