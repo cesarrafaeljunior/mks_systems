@@ -15,10 +15,9 @@ const Header = () => {
       <ButtonStyled
         display="flex"
         alignItems="center"
-        justifyContent="center"
+        justifyContent="space-between"
         gap="10px"
-        height="1.9em"
-        padding="0.7em"
+        padding="2px 10px"
         backgroundcolor="white"
         borderRadius="8px"
         bordercolor="white"
