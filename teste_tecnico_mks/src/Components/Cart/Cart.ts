@@ -10,7 +10,7 @@ const CartStyled = styled.section`
   gap: 2em;
 
   width: 85%;
-  max-width: 450px;
+  max-width: 486px;
   height: 100%;
 
   position: fixed;

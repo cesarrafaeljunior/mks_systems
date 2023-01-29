@@ -1,5 +1,6 @@
 export interface IPropsChildren {
   children: React.ReactNode;
+  className?: string;
 }
 
 export interface IPropsProductInformations {
