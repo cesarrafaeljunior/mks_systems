@@ -14,6 +14,7 @@ import { IconStyled } from "../../Components/Common/Icons/Icons";
 import { RiShoppingBag3Line } from "react-icons/ri";
 import { Footer } from "../../Components/Footer";
 import { Cart } from "../../Components/Cart";
+import { QuantityProduct } from "../../Components/Common/Product/QuantityProduct";
 
 const MainPage = () => {
   const [productsArray, setProducts] = useState([]);
@@ -55,8 +56,6 @@ const MainPage = () => {
           X
         </ButtonStyled>
         <Card>
-          <TitleProduct nameProduct="Apple Watch Series 4 gps" />
-          <PriceProduct priceProduct="R$399" />
           <ButtonStyled
             fontSize="25px"
             fontWeigth="fontWeMedium"
@@ -66,6 +65,12 @@ const MainPage = () => {
           >
             X
           </ButtonStyled>
+          <TitleProduct nameProduct="Apple Watch Series 4 gps" />
+
+          <DivFlex alignItems="center" justifyContent="center" gap="30px">
+            <QuantityProduct>1</QuantityProduct>
+            <PriceProduct priceProduct="R$399" />
+          </DivFlex>
         </Card>
       </Cart>
       <SectionStyled>
