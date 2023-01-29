@@ -3,6 +3,12 @@ export interface IButtonComponent {
   alignItems?: string;
   justifyContent?: string;
   gap?: string;
+  alignSelf?: string;
+  textAlign?: string;
+  position?: string;
+  top?: string;
+  right?: string;
+  left?: string;
   width?: string;
   maxWidth?: string;
   height?: string;

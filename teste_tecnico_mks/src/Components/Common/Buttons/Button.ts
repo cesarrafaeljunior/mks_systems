@@ -7,6 +7,14 @@ const ButtonStyled = styled.button<IButtonComponent>`
   justify-content: ${({ justifyContent }) => `${justifyContent}`};
   gap: ${({ gap }) => `${gap}`};
 
+  align-self: ${({ alignSelf }) => `${alignSelf}`};
+  text-align: ${({ textAlign }) => `${textAlign}`};
+
+  position: ${({ position }) => `${position}`};
+  top: ${({ top }) => `${top}`};
+  right: ${({ right }) => `${right}`};
+  left: ${({ left }) => `${left}`};
+
   width: ${({ width }) => `${width}`};
   max-width: ${({ maxWidth }) => `${maxWidth}`};
   height: ${({ height }) => `${height}`};
@@ -22,6 +30,8 @@ const ButtonStyled = styled.button<IButtonComponent>`
 
   font-size: ${({ fontSize }) => `${fontSize}`};
   font-weight: ${({ fontWeigth }) => `var(--${fontWeigth})`};
+
+  transition: ease-in-out 0.3s;
 
   &:hover {
     background-color: ${({ hover }) => `var(--${hover})`};
