@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "../../Components/Card";
 import { DescriptionProduct } from "../../Components/Common/Product/DescriptionProducts";
 import { DivFlex } from "../../Components/Common/Divs/DivFlex";
@@ -15,64 +15,81 @@ import { RiShoppingBag3Line } from "react-icons/ri";
 import { Footer } from "../../Components/Footer";
 import { Cart } from "../../Components/Cart";
 import { QuantityProduct } from "../../Components/Common/Product/QuantityProduct";
+import { useDispatch, useSelector } from "react-redux";
+import { IProducts } from "../../Interfaces/Products";
+import {
+  addItems,
+  ICartProducts,
+  ICartState,
+} from "../../redux/Slices/cartSlice";
 
 const MainPage = () => {
-  const [productsArray, setProducts] = useState([]);
+  const dispatch = useDispatch();
+  const products = useSelector(
+    (state: { cart: ICartState }) => state.cart.items
+  );
+  console.log(products);
+  // const isOpenCard = useSelector(
+  //   (state: { cart: ICartState }) => state.cart.isOpen
+  // );
 
-  // useEffect(() => {
-  //   instaceAxios
-  //     .get("products", {
-  //       params: {
-  //         page: 1,
-  //         rows: 8,
-  //         sortBy: "id",
-  //         orderBy: "ASC",
-  //       },
-  //     })
-  //     .then(({ data }) => setProducts(data))
-  //     .catch((error) => console.log(error));
-  // }, []);
-
-  // console.log(productsArray);
+  useEffect(() => {
+    instaceAxios
+      .get("products", {
+        params: {
+          page: 1,
+          rows: 8,
+          sortBy: "id",
+          orderBy: "ASC",
+        },
+      })
+      .then(({ data }) => {
+        dispatch(addItems(data.products));
+      })
+      .catch((error) => console.log(error));
+  }, [dispatch]);
 
   return (
     <>
-      <Cart>
-        <ButtonStyled
-          width="content"
-          height="content"
-          backgroundcolor="black"
-          color="white"
-          padding="5px 10px"
-          borderRadius="100%"
-          textAlign="center"
-          fontSize="20px"
-          position="absolute"
-          top="1.2em"
-          right="0.5em"
-          bordercolor="black"
-          hover="greyScale4"
-        >
-          X
-        </ButtonStyled>
-        <Card className="media__desktop">
+      {/* {isOpenCard && (
+        <Cart>
           <ButtonStyled
-            fontSize="25px"
-            fontWeigth="fontWeMedium"
+            width="content"
+            height="content"
+            backgroundcolor="black"
+            color="white"
+            padding="5px 10px"
+            borderRadius="100%"
+            textAlign="center"
+            fontSize="20px"
             position="absolute"
-            top="0.2em"
+            top="1.2em"
             right="0.5em"
+            bordercolor="black"
+            hover="greyScale4"
           >
             X
           </ButtonStyled>
-          <TitleProduct nameProduct="Apple Watch Series 4 gps" />
+          <Card className="media__desktop">
+            <ButtonStyled
+              fontSize="25px"
+              fontWeigth="fontWeMedium"
+              position="absolute"
+              top="0.2em"
+              right="0.5em"
+            >
+              X
+            </ButtonStyled>
+            <TitleProduct nameProduct="Apple Watch Series 4 gps" />
 
-          <DivFlex alignItems="center" justifyContent="center" gap="30px">
-            <QuantityProduct>1</QuantityProduct>
-            <PriceProduct priceProduct="R$399" />
-          </DivFlex>
-        </Card>
-      </Cart>
+            <DivFlex alignItems="center" justifyContent="center" gap="30px">
+              <QuantityProduct>1</QuantityProduct>
+              <PriceProduct priceProduct="R$399" />
+            </DivFlex>
+          </Card>
+        </Cart>
+      )} */}
+
       <SectionStyled>
         <Header />
       </SectionStyled>
@@ -80,230 +97,38 @@ const MainPage = () => {
         <Main>
           <DivFlex alignItems="center" justifyContent="center">
             <List>
-              <Card>
-                <DivFlex gap="8%">
-                  <TitleProduct nameProduct="Apple Watch Series 4 GPS" />
-                  <PriceProduct priceProduct="R$399" />
-                </DivFlex>
-                <DescriptionProduct descriptionProduct="Redesign from scratch and completely revised" />
-                <ButtonStyled
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  gap="0.6em"
-                  width="calc(100% + 40px)"
-                  margin="4px 0 -20px 0"
-                  padding="10px"
-                  backgroundcolor="colorPrimary"
-                  bordercolor="colorPrimary"
-                  color="white"
-                  borderRadius="0 0 8px 8px"
-                  fontSize="1.1em"
-                  fontWeigth="fontWeSemiBold"
-                  hover="colorPrimaryHover"
-                >
-                  <IconStyled width="25px" height="22px" color="white">
-                    <RiShoppingBag3Line className="icon" />
-                  </IconStyled>
-                  Comprar
-                </ButtonStyled>
-              </Card>
-              <Card>
-                <DivFlex gap="8%">
-                  <TitleProduct nameProduct="Apple Watch Series 4 GPS" />
-                  <PriceProduct priceProduct="R$399" />
-                </DivFlex>
-                <DescriptionProduct descriptionProduct="Redesign from scratch and completely revised" />
-                <ButtonStyled
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  gap="0.6em"
-                  width="calc(100% + 40px)"
-                  margin="4px 0 -20px 0"
-                  padding="10px"
-                  backgroundcolor="colorPrimary"
-                  bordercolor="colorPrimary"
-                  color="white"
-                  borderRadius="0 0 8px 8px"
-                  fontSize="1.1em"
-                  fontWeigth="fontWeSemiBold"
-                  hover="colorPrimaryHover"
-                >
-                  <IconStyled width="25px" height="22px" color="white">
-                    <RiShoppingBag3Line className="icon" />
-                  </IconStyled>
-                  Comprar
-                </ButtonStyled>
-              </Card>
-              <Card>
-                <DivFlex gap="8%">
-                  <TitleProduct nameProduct="Apple Watch Series 4 GPS" />
-                  <PriceProduct priceProduct="R$399" />
-                </DivFlex>
-                <DescriptionProduct descriptionProduct="Redesign from scratch and completely revised" />
-                <ButtonStyled
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  gap="0.6em"
-                  width="calc(100% + 40px)"
-                  margin="4px 0 -20px 0"
-                  padding="10px"
-                  backgroundcolor="colorPrimary"
-                  bordercolor="colorPrimary"
-                  color="white"
-                  borderRadius="0 0 8px 8px"
-                  fontSize="1.1em"
-                  fontWeigth="fontWeSemiBold"
-                  hover="colorPrimaryHover"
-                >
-                  <IconStyled width="25px" height="22px" color="white">
-                    <RiShoppingBag3Line className="icon" />
-                  </IconStyled>
-                  Comprar
-                </ButtonStyled>
-              </Card>
-              <Card>
-                <DivFlex gap="8%">
-                  <TitleProduct nameProduct="Apple Watch Series 4 GPS" />
-                  <PriceProduct priceProduct="R$399" />
-                </DivFlex>
-                <DescriptionProduct descriptionProduct="Redesign from scratch and completely revised" />
-                <ButtonStyled
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  gap="0.6em"
-                  width="calc(100% + 40px)"
-                  margin="4px 0 -20px 0"
-                  padding="10px"
-                  backgroundcolor="colorPrimary"
-                  bordercolor="colorPrimary"
-                  color="white"
-                  borderRadius="0 0 8px 8px"
-                  fontSize="1.1em"
-                  fontWeigth="fontWeSemiBold"
-                  hover="colorPrimaryHover"
-                >
-                  <IconStyled width="25px" height="22px" color="white">
-                    <RiShoppingBag3Line className="icon" />
-                  </IconStyled>
-                  Comprar
-                </ButtonStyled>
-              </Card>
-              <Card>
-                <DivFlex gap="8%">
-                  <TitleProduct nameProduct="Apple Watch Series 4 GPS" />
-                  <PriceProduct priceProduct="R$399" />
-                </DivFlex>
-                <DescriptionProduct descriptionProduct="Redesign from scratch and completely revised" />
-                <ButtonStyled
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  gap="0.6em"
-                  width="calc(100% + 40px)"
-                  margin="4px 0 -20px 0"
-                  padding="10px"
-                  backgroundcolor="colorPrimary"
-                  bordercolor="colorPrimary"
-                  color="white"
-                  borderRadius="0 0 8px 8px"
-                  fontSize="1.1em"
-                  fontWeigth="fontWeSemiBold"
-                  hover="colorPrimaryHover"
-                >
-                  <IconStyled width="25px" height="22px" color="white">
-                    <RiShoppingBag3Line className="icon" />
-                  </IconStyled>
-                  Comprar
-                </ButtonStyled>
-              </Card>
-              <Card>
-                <DivFlex gap="8%">
-                  <TitleProduct nameProduct="Apple Watch Series 4 GPS" />
-                  <PriceProduct priceProduct="R$399" />
-                </DivFlex>
-                <DescriptionProduct descriptionProduct="Redesign from scratch and completely revised" />
-                <ButtonStyled
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  gap="0.6em"
-                  width="calc(100% + 40px)"
-                  margin="4px 0 -20px 0"
-                  padding="10px"
-                  backgroundcolor="colorPrimary"
-                  bordercolor="colorPrimary"
-                  color="white"
-                  borderRadius="0 0 8px 8px"
-                  fontSize="1.1em"
-                  fontWeigth="fontWeSemiBold"
-                  hover="colorPrimaryHover"
-                >
-                  <IconStyled width="25px" height="22px" color="white">
-                    <RiShoppingBag3Line className="icon" />
-                  </IconStyled>
-                  Comprar
-                </ButtonStyled>
-              </Card>
-              <Card>
-                <DivFlex gap="8%">
-                  <TitleProduct nameProduct="Apple Watch Series 4 GPS" />
-                  <PriceProduct priceProduct="R$399" />
-                </DivFlex>
-                <DescriptionProduct descriptionProduct="Redesign from scratch and completely revised" />
-                <ButtonStyled
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  gap="0.6em"
-                  width="calc(100% + 40px)"
-                  margin="4px 0 -20px 0"
-                  padding="10px"
-                  backgroundcolor="colorPrimary"
-                  bordercolor="colorPrimary"
-                  color="white"
-                  borderRadius="0 0 8px 8px"
-                  fontSize="1.1em"
-                  fontWeigth="fontWeSemiBold"
-                  hover="colorPrimaryHover"
-                >
-                  <IconStyled width="25px" height="22px" color="white">
-                    <RiShoppingBag3Line className="icon" />
-                  </IconStyled>
-                  Comprar
-                </ButtonStyled>
-              </Card>
-              <Card>
-                <DivFlex gap="8%">
-                  <TitleProduct nameProduct="Apple Watch Series 4 GPS" />
-                  <PriceProduct priceProduct="R$399" />
-                </DivFlex>
-                <DescriptionProduct descriptionProduct="Redesign from scratch and completely revised" />
-                <ButtonStyled
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  gap="0.6em"
-                  width="calc(100% + 40px)"
-                  margin="4px 0 -20px 0"
-                  padding="10px"
-                  backgroundcolor="colorPrimary"
-                  bordercolor="colorPrimary"
-                  color="white"
-                  borderRadius="0 0 8px 8px"
-                  fontSize="1.1em"
-                  fontWeigth="fontWeSemiBold"
-                  hover="colorPrimaryHover"
-                >
-                  <IconStyled width="25px" height="22px" color="white">
-                    <RiShoppingBag3Line className="icon" />
-                  </IconStyled>
-                  Comprar
-                </ButtonStyled>
-              </Card>
+              {products.map((elem: ICartProducts) => {
+                return (
+                  <Card imgProduct={elem.photo} key={elem.name}>
+                    <DivFlex gap="8%">
+                      <TitleProduct nameProduct={elem.name} />
+                      <PriceProduct priceProduct={`R$${elem.price}`} />
+                    </DivFlex>
+                    <DescriptionProduct descriptionProduct={elem.description} />
+                    <ButtonStyled
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                      gap="0.6em"
+                      width="calc(100% + 40px)"
+                      margin="4px 0 -20px 0"
+                      padding="10px"
+                      backgroundcolor="colorPrimary"
+                      bordercolor="colorPrimary"
+                      color="white"
+                      borderRadius="0 0 8px 8px"
+                      fontSize="1.1em"
+                      fontWeigth="fontWeSemiBold"
+                      hover="colorPrimaryHover"
+                    >
+                      <IconStyled width="25px" height="22px" color="white">
+                        <RiShoppingBag3Line className="icon" />
+                      </IconStyled>
+                      Comprar
+                    </ButtonStyled>
+                  </Card>
+                );
+              })}
             </List>
           </DivFlex>
         </Main>
