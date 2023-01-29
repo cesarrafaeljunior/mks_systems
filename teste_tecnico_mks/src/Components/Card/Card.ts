@@ -11,7 +11,7 @@ const CardStyled = styled.li`
 
   position: relative;
 
-  z-index: -1;
+  z-index: 1;
 
   padding: 1.2em;
 
