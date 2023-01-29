@@ -13,6 +13,12 @@ const QuantitySyled = styled.section`
 
   font-weight: 400;
 
+  button {
+    &:hover {
+      color: var(--greyScale2);
+    }
+  }
+
   .button__minus {
     display: flex;
     align-items: center;

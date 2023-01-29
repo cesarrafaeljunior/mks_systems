@@ -55,7 +55,7 @@ const MainPage = () => {
         >
           X
         </ButtonStyled>
-        <Card>
+        <Card className="media__desktop">
           <ButtonStyled
             fontSize="25px"
             fontWeigth="fontWeMedium"
