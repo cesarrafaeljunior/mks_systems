@@ -17,41 +17,37 @@ import { Cart } from "../../Components/Cart";
 import { QuantityProduct } from "../../Components/Common/Product/QuantityProduct";
 import { useDispatch, useSelector } from "react-redux";
 import { IProducts } from "../../Interfaces/Products";
-import {
-  addItems,
-  ICartProducts,
-  ICartState,
-} from "../../redux/Slices/cartSlice";
+import { getProducts } from "../../services/axios/request/getProducts";
+import { ICartState, IShowcaseState } from "../../Interfaces/Slices";
+import { addProductsToShowCase } from "../../redux/Slices/showCaseSlice";
+import { openCart } from "../../redux/Slices/cartSlice";
 
 const MainPage = () => {
   const dispatch = useDispatch();
+
   const products = useSelector(
-    (state: { cart: ICartState }) => state.cart.items
+    (state: { showCase: IShowcaseState }) => state.showCase
   );
-  console.log(products);
-  // const isOpenCard = useSelector(
-  //   (state: { cart: ICartState }) => state.cart.isOpen
-  // );
+
+  const isOpen = useSelector((state: { cart: ICartState }) => state.cart.open);
+  console.log(isOpen);
 
   useEffect(() => {
-    instaceAxios
-      .get("products", {
-        params: {
-          page: 1,
-          rows: 8,
-          sortBy: "id",
-          orderBy: "ASC",
-        },
-      })
-      .then(({ data }) => {
-        dispatch(addItems(data.products));
-      })
-      .catch((error) => console.log(error));
-  }, [dispatch]);
+    const dataRequest = async () => {
+      try {
+        const data = await getProducts();
+        dispatch(addProductsToShowCase(data));
+      } catch (err) {
+        return err;
+      }
+    };
+
+    dataRequest();
+  }, []);
 
   return (
     <>
-      {/* {isOpenCard && (
+      {isOpen && (
         <Cart>
           <ButtonStyled
             width="content"
@@ -67,6 +63,9 @@ const MainPage = () => {
             right="0.5em"
             bordercolor="black"
             hover="greyScale4"
+            onClick={() => {
+              dispatch(openCart(isOpen));
+            }}
           >
             X
           </ButtonStyled>
@@ -88,8 +87,7 @@ const MainPage = () => {
             </DivFlex>
           </Card>
         </Cart>
-      )} */}
-
+      )}
       <SectionStyled>
         <Header />
       </SectionStyled>
@@ -97,9 +95,9 @@ const MainPage = () => {
         <Main>
           <DivFlex alignItems="center" justifyContent="center">
             <List>
-              {products.map((elem: ICartProducts) => {
+              {products.map((elem: IProducts) => {
                 return (
-                  <Card imgProduct={elem.photo} key={elem.name}>
+                  <Card imgProduct={elem.photo} key={elem.id}>
                     <DivFlex gap="8%">
                       <TitleProduct nameProduct={elem.name} />
                       <PriceProduct priceProduct={`R$${elem.price}`} />

@@ -1,6 +1,10 @@
 export interface IProducts {
+  id: string;
+  updatedAt: string;
+  brand: string;
+  createdAt: string;
   name: string;
   photo: string;
-  price: string;
   description: string;
+  price: string;
 }
