@@ -1,12 +1,22 @@
 import { IPropsChildren } from "../../../../Interfaces/Props";
 import { QuantitySyled } from "./Quantity";
 
-const QuantityProduct = ({ children }: IPropsChildren) => {
+const QuantityProduct = ({
+  children,
+  updateProductIncrement,
+  updateProductDecrement,
+}: IPropsChildren) => {
   return (
     <QuantitySyled>
-      <button className="button__minus"> - </button>
+      <button onClick={updateProductDecrement} className="button__minus">
+        {" "}
+        -{" "}
+      </button>
       {children}
-      <button className="button__more"> + </button>
+      <button onClick={updateProductIncrement} className="button__more">
+        {" "}
+        +{" "}
+      </button>
     </QuantitySyled>
   );
 };

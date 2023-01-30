@@ -11,33 +11,27 @@ const cartSlice = createSlice({
     openCart(state, { payload }: PayloadAction<boolean>) {
       state.open = !payload;
     },
-    addProduct(state, { payload }: PayloadAction<IProducts>) {
+    addProductReducer(state, { payload }: PayloadAction<IProducts>) {
       state.items.push(payload);
     },
-    updateProduct(state, { payload }: PayloadAction<IProducts>) {
-      state.items = state.items.map((elem: any) => {
+    updateProductReducer(state, { payload }: PayloadAction<IProducts>) {
+      const newState = state.items.map((elem: IProducts) => {
         if (elem.id === payload.id) {
           return {
             ...elem,
             amount: payload.amount,
           };
         }
+
         return elem;
       });
+      return { ...state, items: newState };
     },
-    removeProduct(state, { payload }: PayloadAction<IProducts>) {
-      state.items.map((elem: IProducts) => {
-        if (elem.id == payload.id && elem.amount) {
-          elem.amount -= 1;
-          return elem;
-        }
-      });
-      const removeProductCart = state.items.filter((elem: IProducts) => {
-        if (elem.amount && elem.amount > 0) {
-          return elem.amount > 0;
-        }
-      });
-      state.items = removeProductCart;
+    removeProductReducer(state, { payload }: PayloadAction<IProducts>) {
+      const newState = state.items.filter(
+        (elem: IProducts) => elem.id !== payload.id
+      );
+      return { ...state, items: newState };
     },
     checkout(state, { payload }: PayloadAction<any>) {
       const newState = state.items.filter((elem: any) => elem !== elem);
@@ -46,7 +40,12 @@ const cartSlice = createSlice({
   },
 });
 
-export const { openCart, addProduct, updateProduct, removeProduct, checkout } =
-  cartSlice.actions;
+export const {
+  openCart,
+  addProductReducer,
+  updateProductReducer,
+  removeProductReducer,
+  checkout,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

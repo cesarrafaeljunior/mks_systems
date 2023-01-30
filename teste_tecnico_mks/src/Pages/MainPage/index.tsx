@@ -21,11 +21,17 @@ import { getProducts } from "../../services/axios/request/getProducts";
 import { ICartState, IShowcaseState } from "../../Interfaces/Slices";
 import { addProductsToShowCase } from "../../redux/Slices/showCaseSlice";
 import {
-  addProduct,
+  addProductReducer,
   openCart,
-  removeProduct,
-  updateProduct,
+  removeProductReducer,
+  updateProductReducer,
 } from "../../redux/Slices/cartSlice";
+import {
+  addProductInCart,
+  decrementQuantityProductInCart,
+  incrementQuantityProductInCart,
+  removeProductInCart,
+} from "../../services/cart/productsServices";
 
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -40,40 +46,46 @@ const MainPage = () => {
     (state: { cart: ICartState }) => state.cart.items
   );
 
-  const addProductCart = (product: IProducts) => {
-    const foundProduct = itemsCart.find((elem) => elem.id == product.id);
+  const addProduct = (product: IProducts) => {
+    const newProduct: IProducts | undefined = addProductInCart(
+      product,
+      itemsCart
+    );
 
-    if (!foundProduct) {
-      const newProduct = {
-        ...product,
-        amount: 1,
-      };
-      dispatch(addProduct(newProduct));
-    } else {
-      updateFunc(foundProduct);
+    if (newProduct) {
+      dispatch(addProductReducer(newProduct));
     }
   };
 
-  const updateFunc = (product: IProducts) => {
-    const updateItems = itemsCart.map((elem) => {
-      if (elem.id == product.id && elem.amount) {
-        const updateProduct: any = {
-          ...elem,
-          amount: elem.amount + 1,
-        };
-        return updateProduct;
-      }
-    });
-    const filteredItems = updateItems.filter((item) => item !== undefined);
-    const [productUpdate] = filteredItems;
-    dispatch(updateProduct(productUpdate));
+  const updateProductIncrement = (product: IProducts) => {
+    const updateProduct: IProducts | undefined = incrementQuantityProductInCart(
+      product,
+      itemsCart
+    );
+
+    if (updateProduct) {
+      dispatch(updateProductReducer(updateProduct));
+    }
   };
 
-  const removeFromCart = (id: string) => {
-    const product = itemsCart.find((elem) => elem.id == id);
+  const updateProductDecrement = (product: IProducts) => {
+    const updateProduct: IProducts | undefined = decrementQuantityProductInCart(
+      product,
+      itemsCart
+    );
+    if (updateProduct) {
+      if (!updateProduct.amount) {
+        dispatch(removeProductReducer(updateProduct));
+      }
+      dispatch(updateProductReducer(updateProduct));
+    }
+  };
 
-    if (product) {
-      dispatch(removeProduct(product));
+  const removeProduct = (id: string) => {
+    const productToRemove = removeProductInCart(id, itemsCart);
+
+    if (productToRemove) {
+      dispatch(removeProductReducer(productToRemove));
     }
   };
 
@@ -116,14 +128,18 @@ const MainPage = () => {
           </ButtonStyled>
           {itemsCart.length > 0
             ? itemsCart.map((elem) => (
-                <Card className="media__desktop" imgProduct={elem.photo}>
+                <Card
+                  className="media__desktop"
+                  imgProduct={elem.photo}
+                  key={elem.id}
+                >
                   <ButtonStyled
                     fontSize="25px"
                     fontWeigth="fontWeMedium"
                     position="absolute"
                     top="0.2em"
                     right="0.5em"
-                    onClick={() => removeFromCart(elem.id)}
+                    onClick={() => removeProduct(elem.id)}
                   >
                     X
                   </ButtonStyled>
@@ -134,7 +150,16 @@ const MainPage = () => {
                     justifyContent="center"
                     gap="30px"
                   >
-                    <QuantityProduct>{elem.amount}</QuantityProduct>
+                    <QuantityProduct
+                      updateProductIncrement={() =>
+                        updateProductIncrement(elem)
+                      }
+                      updateProductDecrement={() =>
+                        updateProductDecrement(elem)
+                      }
+                    >
+                      {elem.amount}
+                    </QuantityProduct>
                     <PriceProduct priceProduct={elem.price} />
                   </DivFlex>
                 </Card>
@@ -172,7 +197,7 @@ const MainPage = () => {
                       fontSize="1.1em"
                       fontWeigth="fontWeSemiBold"
                       hover="colorPrimaryHover"
-                      onClick={() => addProductCart(elem)}
+                      onClick={() => addProduct(elem)}
                     >
                       <IconStyled width="25px" height="22px" color="white">
                         <RiShoppingBag3Line className="icon" />
