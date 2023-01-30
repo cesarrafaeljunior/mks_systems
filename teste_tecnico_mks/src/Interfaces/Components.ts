@@ -21,6 +21,7 @@ export interface IButtonComponent {
   fontSize?: string;
   hover?: string;
   fontWeigth?: string;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface IDivFlexComponent {
