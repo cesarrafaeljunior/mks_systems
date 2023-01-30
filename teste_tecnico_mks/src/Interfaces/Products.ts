@@ -7,4 +7,5 @@ export interface IProducts {
   photo: string;
   description: string;
   price: string;
+  amount?: number | undefined;
 }

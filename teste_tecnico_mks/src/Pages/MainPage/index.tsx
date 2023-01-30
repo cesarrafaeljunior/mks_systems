@@ -20,7 +20,11 @@ import { IProducts } from "../../Interfaces/Products";
 import { getProducts } from "../../services/axios/request/getProducts";
 import { ICartState, IShowcaseState } from "../../Interfaces/Slices";
 import { addProductsToShowCase } from "../../redux/Slices/showCaseSlice";
-import { openCart } from "../../redux/Slices/cartSlice";
+import {
+  addProduct,
+  openCart,
+  updateProduct,
+} from "../../redux/Slices/cartSlice";
 
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -30,7 +34,43 @@ const MainPage = () => {
   );
 
   const isOpen = useSelector((state: { cart: ICartState }) => state.cart.open);
-  console.log(isOpen);
+
+  const itemsCart = useSelector(
+    (state: { cart: ICartState }) => state.cart.items
+  );
+
+  const addProductCart = (product: IProducts) => {
+    const foundProduct = itemsCart.find((elem) => elem.id == product.id);
+
+    if (!foundProduct) {
+      const newProduct = {
+        ...product,
+        amount: 1,
+      };
+      dispatch(addProduct(newProduct));
+    } else {
+      updateFunc(foundProduct);
+    }
+  };
+
+  const updateFunc = (product: IProducts) => {
+    const updateItems = itemsCart.map((elem) => {
+      if (elem.id == product.id && elem.amount) {
+        const updateProduct: any = {
+          ...elem,
+          amount: elem.amount + 1,
+        };
+        return updateProduct;
+      }
+    });
+    const filteredItems = updateItems.filter((item) => item !== undefined);
+    const [productUpdate] = filteredItems;
+    dispatch(updateProduct(productUpdate));
+  };
+
+  console.log(itemsCart);
+
+  const removeFromCart = (id: IProducts) => {};
 
   useEffect(() => {
     const dataRequest = async () => {
@@ -69,23 +109,31 @@ const MainPage = () => {
           >
             X
           </ButtonStyled>
-          <Card className="media__desktop">
-            <ButtonStyled
-              fontSize="25px"
-              fontWeigth="fontWeMedium"
-              position="absolute"
-              top="0.2em"
-              right="0.5em"
-            >
-              X
-            </ButtonStyled>
-            <TitleProduct nameProduct="Apple Watch Series 4 gps" />
+          {itemsCart.length > 0
+            ? itemsCart.map((elem) => (
+                <Card className="media__desktop" imgProduct={elem.photo}>
+                  <ButtonStyled
+                    fontSize="25px"
+                    fontWeigth="fontWeMedium"
+                    position="absolute"
+                    top="0.2em"
+                    right="0.5em"
+                  >
+                    X
+                  </ButtonStyled>
+                  <TitleProduct nameProduct={elem.name} />
 
-            <DivFlex alignItems="center" justifyContent="center" gap="30px">
-              <QuantityProduct>1</QuantityProduct>
-              <PriceProduct priceProduct="R$399" />
-            </DivFlex>
-          </Card>
+                  <DivFlex
+                    alignItems="center"
+                    justifyContent="center"
+                    gap="30px"
+                  >
+                    <QuantityProduct>{elem.amount}</QuantityProduct>
+                    <PriceProduct priceProduct={elem.price} />
+                  </DivFlex>
+                </Card>
+              ))
+            : null}
         </Cart>
       )}
       <SectionStyled>
@@ -118,6 +166,7 @@ const MainPage = () => {
                       fontSize="1.1em"
                       fontWeigth="fontWeSemiBold"
                       hover="colorPrimaryHover"
+                      onClick={() => addProductCart(elem)}
                     >
                       <IconStyled width="25px" height="22px" color="white">
                         <RiShoppingBag3Line className="icon" />
