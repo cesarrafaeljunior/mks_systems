@@ -39,10 +39,14 @@ const cartSlice = createSlice({
       });
       state.items = removeProductCart;
     },
+    checkout(state, { payload }: PayloadAction<any>) {
+      const newState = state.items.filter((elem: any) => elem !== elem);
+      state.items = newState;
+    },
   },
 });
 
-export const { openCart, addProduct, updateProduct, removeProduct } =
+export const { openCart, addProduct, updateProduct, removeProduct, checkout } =
   cartSlice.actions;
 
 export default cartSlice.reducer;
