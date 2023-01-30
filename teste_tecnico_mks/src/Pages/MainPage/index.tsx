@@ -23,6 +23,7 @@ import { addProductsToShowCase } from "../../redux/Slices/showCaseSlice";
 import {
   addProduct,
   openCart,
+  removeProduct,
   updateProduct,
 } from "../../redux/Slices/cartSlice";
 
@@ -68,9 +69,13 @@ const MainPage = () => {
     dispatch(updateProduct(productUpdate));
   };
 
-  console.log(itemsCart);
+  const removeFromCart = (id: string) => {
+    const product = itemsCart.find((elem) => elem.id == id);
 
-  const removeFromCart = (id: IProducts) => {};
+    if (product) {
+      dispatch(removeProduct(product));
+    }
+  };
 
   useEffect(() => {
     const dataRequest = async () => {
@@ -118,6 +123,7 @@ const MainPage = () => {
                     position="absolute"
                     top="0.2em"
                     right="0.5em"
+                    onClick={() => removeFromCart(elem.id)}
                   >
                     X
                   </ButtonStyled>

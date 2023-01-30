@@ -25,9 +25,28 @@ const cartSlice = createSlice({
         return elem;
       });
     },
+    removeProduct(state, { payload }: PayloadAction<IProducts>) {
+      state.items.map((elem: IProducts) => {
+        if (elem.id == payload.id && elem.amount) {
+          elem.amount -= 1;
+          return elem;
+        }
+      });
+      const removeProductCart = state.items.filter((elem: IProducts) => {
+        if (elem.amount && elem.amount > 0) {
+          return elem.amount > 0;
+        }
+      });
+      state.items = removeProductCart;
+    },
+    checkout(state, { payload }: PayloadAction<any>) {
+      const newState = state.items.filter((elem: any) => elem !== elem);
+      state.items = newState;
+    },
   },
 });
 
-export const { openCart, addProduct, updateProduct } = cartSlice.actions;
+export const { openCart, addProduct, updateProduct, removeProduct, checkout } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
