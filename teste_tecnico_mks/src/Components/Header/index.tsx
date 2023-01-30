@@ -11,7 +11,16 @@ import { HeaderStyled } from "./Header";
 const Header = () => {
   const dispatch = useDispatch();
 
+  const itemsCart = useSelector(
+    (state: { cart: ICartState }) => state.cart.items
+  );
   const isOpen = useSelector((state: { cart: ICartState }) => state.cart.open);
+
+  const numberOfItemsOnTheCard = itemsCart.reduce((acc: number, elem: any) => {
+    if (elem.amount) {
+      return elem.amount + acc;
+    }
+  }, 0);
 
   return (
     <HeaderStyled>
@@ -39,7 +48,7 @@ const Header = () => {
         <IconStyled width="20px" height="20px" color="black">
           <IoMdCart className="icon" />
         </IconStyled>
-        0
+        {numberOfItemsOnTheCard}
       </ButtonStyled>
     </HeaderStyled>
   );
