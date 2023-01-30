@@ -3,6 +3,12 @@ export interface IButtonComponent {
   alignItems?: string;
   justifyContent?: string;
   gap?: string;
+  alignSelf?: string;
+  textAlign?: string;
+  position?: string;
+  top?: string;
+  right?: string;
+  left?: string;
   width?: string;
   maxWidth?: string;
   height?: string;
@@ -15,6 +21,7 @@ export interface IButtonComponent {
   fontSize?: string;
   hover?: string;
   fontWeigth?: string;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface IDivFlexComponent {
