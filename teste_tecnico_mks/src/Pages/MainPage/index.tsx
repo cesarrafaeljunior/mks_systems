@@ -1,41 +1,40 @@
-import { useState, useEffect, useRef } from "react";
-import { Card } from "../../Components/Card";
-import { DescriptionProduct } from "../../Components/Common/Product/DescriptionProducts";
-import { DivFlex } from "../../Components/Common/Divs/DivFlex";
-import { PriceProduct } from "../../Components/Common/Product/PriceProduct";
-import { TitleProduct } from "../../Components/Common/Product/TitleProductCard";
-import { Header } from "../../Components/Header";
-import { List } from "../../Components/List";
-import { Main } from "../../Components/Main";
-import { instaceAxios } from "../../services/axios/Instance";
-import { SectionFooter } from "./Main";
-import { ButtonStyled } from "../../Components/Common/Buttons/Button";
-import { IconStyled } from "../../Components/Common/Icons/Icons";
-import { RiShoppingBag3Line } from "react-icons/ri";
-import { Footer } from "../../Components/Footer";
-import { Cart } from "../../Components/Cart";
-import { QuantityProduct } from "../../Components/Common/Product/QuantityProduct";
+import { useEffect } from "react";
+import { RiShoppingBag3Line as ShoppingBag } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
-import { IProducts } from "../../Interfaces/Products";
-import { getProducts } from "../../services/axios/request/getProducts";
+import {
+  Header,
+  Card,
+  Cart,
+  ButtonStyled,
+  DivFlex,
+  IconStyled,
+  DescriptionProduct,
+  PriceProduct,
+  QuantityProduct,
+  TitleProduct,
+  Footer,
+  List,
+  Main,
+  Skeleton,
+  SectionFooter,
+} from "../../Components";
 import { ICartState, IShowcaseState } from "../../Interfaces/Slices";
+import { IProducts } from "../../Interfaces/Products";
 import {
   addProductsToShowCase,
   loadingReducer,
-} from "../../redux/Slices/showCaseSlice";
-import {
   addProductReducer,
   openCart,
   removeProductReducer,
   updateProductReducer,
-} from "../../redux/Slices/cartSlice";
+} from "../../redux/index";
 import {
+  getProducts,
   addProductInCart,
   decrementQuantityProductInCart,
   incrementQuantityProductInCart,
   removeProductInCart,
-} from "../../services/cart/productsServices";
-import { Skeleton } from "../../Components/Skeleton";
+} from "../../services/index";
 
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -119,13 +118,13 @@ const MainPage = () => {
           <DivFlex alignItems="center" justifyContent="center">
             <List>
               {[1, 2, 3, 4, 5, 6, 7, 8].map((elem: number) => {
-                return <Skeleton key={elem} width={240} height={378} />;
+                return <Skeleton key={elem} width="240px" height="378px" />;
               })}
             </List>
           </DivFlex>
         </Main>
         <SectionFooter>
-          <Skeleton width="100%" height={40} />;
+          <Skeleton width="100%" height="40px" />;
         </SectionFooter>
       </>
     );
@@ -161,6 +160,7 @@ const MainPage = () => {
                   className="media__desktop"
                   imgProduct={elem.photo}
                   key={elem.id}
+                  altImg={elem.name}
                 >
                   <ButtonStyled
                     fontSize="25px"
@@ -202,7 +202,7 @@ const MainPage = () => {
           <List>
             {products.map((elem: IProducts) => {
               return (
-                <Card imgProduct={elem.photo} key={elem.id}>
+                <Card imgProduct={elem.photo} key={elem.id} altImg={elem.name}>
                   <DivFlex alignItems="center" justifyContent="space-between">
                     <TitleProduct nameProduct={elem.name} />
                     <PriceProduct priceProduct={`R$${elem.price}`} />
@@ -226,7 +226,7 @@ const MainPage = () => {
                     onClick={() => addProduct(elem)}
                   >
                     <IconStyled width="25px" height="22px" color="white">
-                      <RiShoppingBag3Line className="icon" />
+                      <ShoppingBag className="icon" />
                     </IconStyled>
                     Comprar
                   </ButtonStyled>

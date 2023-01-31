@@ -20,17 +20,16 @@ const CartStyled = styled.section`
   padding: 1.5em 0;
 
   background-color: var(--colorPrimary);
-
   box-shadow: -5px 0px 6px rgba(0, 0, 0, 0.13);
 
   .title__cart {
-    text-align: left;
     width: 90%;
 
     color: var(--white);
 
     font-weight: var(--fontWeBold);
     font-size: ${fontSiCart};
+    text-align: left;
   }
 
   ul {
@@ -50,11 +49,10 @@ const CartStyled = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    gap: 10px;
 
     width: 100%;
     margin-bottom: -1.5em;
-
-    gap: 10px;
 
     .box__informations__subtotal {
       display: flex;

@@ -1,9 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { IProducts } from "../../Interfaces/Products";
 import { IPropsChildren } from "../../Interfaces/Props";
 import { ICartState } from "../../Interfaces/Slices";
 import { checkout } from "../../redux/Slices/cartSlice";
-import { DivFlex } from "../Common/Divs/DivFlex";
 import { CartStyled } from "./Cart";
 
 const Cart = ({ children }: IPropsChildren) => {

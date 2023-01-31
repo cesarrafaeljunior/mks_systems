@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IProducts } from "../../Interfaces/Products";
 import { IShowcaseState } from "../../Interfaces/Slices";
 
-const initialState: IShowcaseState | any = { items: [], loading: true };
+const initialState: IShowcaseState = { items: [], loading: true };
 
 const showCaseSlice = createSlice({
   name: "showCase",
