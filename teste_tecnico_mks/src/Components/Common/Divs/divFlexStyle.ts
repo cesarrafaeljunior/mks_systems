@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IDivFlexComponent } from "../../../Interfaces/Components";
+import { IDivFlexComponent } from "../../../interfaces/componentsInterface";
 
 const DivFlex = styled.div<IDivFlexComponent>`
   width: 100%;

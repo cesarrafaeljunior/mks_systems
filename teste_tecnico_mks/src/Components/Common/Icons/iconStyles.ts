@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IIconsComponent } from "../../../Interfaces/Components";
+import { IIconsComponent } from "../../../interfaces/componentsInterface";
 
 const IconStyled = styled.figure<IIconsComponent>`
   display: flex;

@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { MainPage } from "../Pages/MainPage";
+import { MainPage } from "../pages/MainPage";
 
 const RoutesMain = () => {
   return (

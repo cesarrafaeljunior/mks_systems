@@ -1,5 +1,5 @@
-import { IPropsChildren } from "../../Interfaces/Props";
-import { ListStyled } from "./List";
+import { IPropsChildren } from "../../interfaces/propsInterface";
+import { ListStyled } from "./listStyle";
 
 const List = ({ children }: IPropsChildren) => {
   return <ListStyled>{children}</ListStyled>;

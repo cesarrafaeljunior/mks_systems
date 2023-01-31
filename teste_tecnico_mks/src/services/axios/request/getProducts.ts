@@ -1,4 +1,4 @@
-import { IProducts } from "../../../Interfaces/Products";
+import { IProducts } from "../../../interfaces/productsInterface";
 import { instaceAxios } from "../Instance";
 
 const getProducts = async (): Promise<IProducts[]> => {

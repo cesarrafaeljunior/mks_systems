@@ -1,5 +1,5 @@
-import { IPropsCard, IPropsChildren } from "../../Interfaces/Props";
-import { CardStyled } from "./Card";
+import { IPropsCard } from "../../interfaces/propsInterface";
+import { CardStyled } from "../index";
 
 const Card = ({ children, className, imgProduct, altImg }: IPropsCard) => {
   return (

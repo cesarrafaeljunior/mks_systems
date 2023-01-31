@@ -13,13 +13,13 @@ import {
   QuantityProduct,
   TitleProduct,
   Footer,
+  SectionFooter,
   List,
   Main,
   Skeleton,
-  SectionFooter,
-} from "../../Components";
-import { ICartState, IShowcaseState } from "../../Interfaces/Slices";
-import { IProducts } from "../../Interfaces/Products";
+} from "../../components/index";
+import { ICartState, IShowcaseState } from "../../interfaces/slicesInterface";
+import { IProducts } from "../../interfaces/productsInterface";
 import {
   addProductsToShowCase,
   loadingReducer,
