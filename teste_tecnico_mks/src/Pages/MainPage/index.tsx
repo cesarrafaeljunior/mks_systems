@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Card } from "../../Components/Card";
 import { DescriptionProduct } from "../../Components/Common/Product/DescriptionProducts";
 import { DivFlex } from "../../Components/Common/Divs/DivFlex";
@@ -8,7 +8,7 @@ import { Header } from "../../Components/Header";
 import { List } from "../../Components/List";
 import { Main } from "../../Components/Main";
 import { instaceAxios } from "../../services/axios/Instance";
-import { SectionFooter, SectionStyled } from "./Main";
+import { SectionFooter } from "./Main";
 import { ButtonStyled } from "../../Components/Common/Buttons/Button";
 import { IconStyled } from "../../Components/Common/Icons/Icons";
 import { RiShoppingBag3Line } from "react-icons/ri";
@@ -19,7 +19,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { IProducts } from "../../Interfaces/Products";
 import { getProducts } from "../../services/axios/request/getProducts";
 import { ICartState, IShowcaseState } from "../../Interfaces/Slices";
-import { addProductsToShowCase } from "../../redux/Slices/showCaseSlice";
+import {
+  addProductsToShowCase,
+  loadingReducer,
+} from "../../redux/Slices/showCaseSlice";
 import {
   addProductReducer,
   openCart,
@@ -32,12 +35,17 @@ import {
   incrementQuantityProductInCart,
   removeProductInCart,
 } from "../../services/cart/productsServices";
+import { Skeleton } from "../../Components/Skeleton";
 
 const MainPage = () => {
   const dispatch = useDispatch();
 
   const products = useSelector(
-    (state: { showCase: IShowcaseState }) => state.showCase
+    (state: { showCase: IShowcaseState }) => state.showCase.items
+  );
+
+  const loading = useSelector(
+    (state: { showCase: IShowcaseState }) => state.showCase.loading
   );
 
   const isOpen = useSelector((state: { cart: ICartState }) => state.cart.open);
@@ -94,6 +102,7 @@ const MainPage = () => {
       try {
         const data = await getProducts();
         dispatch(addProductsToShowCase(data));
+        dispatch(loadingReducer(false));
       } catch (err) {
         return err;
       }
@@ -101,6 +110,26 @@ const MainPage = () => {
 
     dataRequest();
   }, []);
+
+  if (loading) {
+    return (
+      <>
+        <Header />
+        <Main>
+          <DivFlex alignItems="center" justifyContent="center">
+            <List>
+              {products.map((elem: IProducts) => {
+                return <Skeleton key={elem.id} width={240} height={378} />;
+              })}
+            </List>
+          </DivFlex>
+        </Main>
+        <SectionFooter>
+          <Skeleton width="100%" height={40} />;
+        </SectionFooter>
+      </>
+    );
+  }
 
   return (
     <>
@@ -167,50 +196,46 @@ const MainPage = () => {
             : null}
         </Cart>
       )}
-      <SectionStyled>
-        <Header />
-      </SectionStyled>
-      <SectionStyled>
-        <Main>
-          <DivFlex alignItems="center" justifyContent="center">
-            <List>
-              {products.map((elem: IProducts) => {
-                return (
-                  <Card imgProduct={elem.photo} key={elem.id}>
-                    <DivFlex gap="8%">
-                      <TitleProduct nameProduct={elem.name} />
-                      <PriceProduct priceProduct={`R$${elem.price}`} />
-                    </DivFlex>
-                    <DescriptionProduct descriptionProduct={elem.description} />
-                    <ButtonStyled
-                      display="flex"
-                      alignItems="center"
-                      justifyContent="center"
-                      gap="0.6em"
-                      width="calc(100% + 40px)"
-                      margin="4px 0 -20px 0"
-                      padding="10px"
-                      backgroundcolor="colorPrimary"
-                      bordercolor="colorPrimary"
-                      color="white"
-                      borderRadius="0 0 8px 8px"
-                      fontSize="1.1em"
-                      fontWeigth="fontWeSemiBold"
-                      hover="colorPrimaryHover"
-                      onClick={() => addProduct(elem)}
-                    >
-                      <IconStyled width="25px" height="22px" color="white">
-                        <RiShoppingBag3Line className="icon" />
-                      </IconStyled>
-                      Comprar
-                    </ButtonStyled>
-                  </Card>
-                );
-              })}
-            </List>
-          </DivFlex>
-        </Main>
-      </SectionStyled>
+      <Header />
+      <Main>
+        <DivFlex alignItems="center" justifyContent="center">
+          <List>
+            {products.map((elem: IProducts) => {
+              return (
+                <Card imgProduct={elem.photo} key={elem.id}>
+                  <DivFlex gap="8%">
+                    <TitleProduct nameProduct={elem.name} />
+                    <PriceProduct priceProduct={`R$${elem.price}`} />
+                  </DivFlex>
+                  <DescriptionProduct descriptionProduct={elem.description} />
+                  <ButtonStyled
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    gap="0.6em"
+                    width="calc(100% + 40px)"
+                    margin="4px 0 -20px 0"
+                    padding="10px"
+                    backgroundcolor="colorPrimary"
+                    bordercolor="colorPrimary"
+                    color="white"
+                    borderRadius="0 0 8px 8px"
+                    fontSize="1.1em"
+                    fontWeigth="fontWeSemiBold"
+                    hover="colorPrimaryHover"
+                    onClick={() => addProduct(elem)}
+                  >
+                    <IconStyled width="25px" height="22px" color="white">
+                      <RiShoppingBag3Line className="icon" />
+                    </IconStyled>
+                    Comprar
+                  </ButtonStyled>
+                </Card>
+              );
+            })}
+          </List>
+        </DivFlex>
+      </Main>
       <SectionFooter>
         <Footer />
       </SectionFooter>
