@@ -5,7 +5,7 @@ const fontSiPriceProduct = "0.9em";
 const PriceProductStyled = styled.p`
   width: max-content;
   height: max-content;
-  padding: 0.5em 0.9em;
+  padding: 0.5em 0.3em;
 
   border-radius: 5px;
 
