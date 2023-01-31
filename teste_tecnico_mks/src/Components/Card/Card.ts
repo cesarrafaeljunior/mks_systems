@@ -24,8 +24,10 @@ const CardStyled = styled.li`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 50%;
+
+    min-width: 201.63px;
+    min-height: 168.11px;
+
     margin-bottom: 6px;
 
     img {
@@ -39,7 +41,9 @@ const CardStyled = styled.li`
       flex-direction: row;
 
       min-width: 100%;
-      padding: 20px 0;
+      padding: 35px 0;
+
+      gap: 0;
 
       > button {
         top: -10px;
@@ -58,8 +62,14 @@ const CardStyled = styled.li`
           background-color: var(--greyScale4);
         }
       }
+      > h2 {
+        width: 50%;
+        min-height: 0;
+      }
 
       .box__img {
+        min-width: 0;
+        min-height: 0;
         width: 150px;
         height: 100%;
       }
@@ -76,8 +86,8 @@ const CardStyled = styled.li`
 
       div {
         gap: 10px;
-        p {
-          font-size: 18px;
+        > p {
+          font-size: 1em;
         }
       }
     }

@@ -5,13 +5,22 @@ const QuantitySyled = styled.section`
   align-items: center;
   justify-content: space-between;
 
-  width: 50%;
+  position: relative;
+
+  width: 40%;
   height: 34.5px;
 
   border: solid 1px var(--greyScale2);
   border-radius: 4px;
 
   font-weight: 400;
+
+  .quantity__product {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    font-size: 0.8em;
+  }
 
   button {
     &:hover {

@@ -7,6 +7,11 @@ const DescriptionProductStyled = styled.p`
 
   font-size: ${fontSiDescriptionProduc};
   font-weight: var(--fontWeLight);
+
+  min-height: 90px;
+  max-height: 90px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;
 
 export { DescriptionProductStyled };

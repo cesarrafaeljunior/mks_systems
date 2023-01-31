@@ -7,6 +7,10 @@ const TitleProductStyled = styled.h2`
 
   font-size: ${fontSiTitleProduct};
   font-weight: var(--fontWeRegular);
+
+  min-height: 40px;
+  max-height: 40px;
+  overflow: hidden;
 `;
 
 export { TitleProductStyled };
