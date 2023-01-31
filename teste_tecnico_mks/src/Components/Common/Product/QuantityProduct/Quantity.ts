@@ -7,7 +7,7 @@ const QuantitySyled = styled.section`
 
   position: relative;
 
-  width: 40%;
+  width: 100%;
   height: 34.5px;
 
   border: solid 1px var(--greyScale2);

@@ -1,6 +1,12 @@
 import styled from "styled-components";
+import { IPropsSkeleton } from "../../Interfaces/Props";
 
-const SkeletonStyled = styled.div`
+const SkeletonStyled = styled.div<IPropsSkeleton>`
+  width: ${({ width }) => `${width}`};
+  height: ${({ height }) => `${height}`};
+
+  border-radius: ${({ borderRadius }) => `${borderRadius}`};
+
   background-image: linear-gradient(
     -90deg,
     var(--white) 0%,

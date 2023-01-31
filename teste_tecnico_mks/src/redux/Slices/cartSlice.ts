@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IProducts } from "../../Interfaces/Products";
 import { ICartState } from "../../Interfaces/Slices";
 
-const initialState: ICartState | any = { items: [], open: false };
+const initialState: ICartState = { items: [], open: false };
 
 const cartSlice = createSlice({
   name: "cart",
