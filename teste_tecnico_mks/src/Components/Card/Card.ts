@@ -38,10 +38,9 @@ const CardStyled = styled.li`
   &.media__desktop {
     @media (min-width: 768px) {
       flex-direction: row;
-      gap: 0;
 
       min-width: 100%;
-      padding: 35px 0;
+      padding: 35px 20px 35px 0;
 
       > button {
         top: -10px;

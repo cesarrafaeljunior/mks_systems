@@ -24,10 +24,17 @@ const GlobalStyle = createGlobalStyle`
     --fontWeBold:     700;
 }
 
+#root{
+    display: flex;
+    flex-direction: column;
+    
+    width: 100%;
+    height: 100%;
+}
 
 body {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: var(--backGroundBody);
     box-sizing: border-box;
 }
