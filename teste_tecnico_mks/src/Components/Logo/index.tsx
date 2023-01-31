@@ -1,3 +1,6 @@
+import { useSelector } from "react-redux";
+import { IShowcaseState } from "../../Interfaces/Slices";
+import { Skeleton } from "../Skeleton";
 import { LogoStyled, SubLogoStyled } from "./Logo";
 
 interface ILogo {

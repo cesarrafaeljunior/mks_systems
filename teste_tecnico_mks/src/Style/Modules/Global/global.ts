@@ -22,18 +22,6 @@ const GlobalStyle = createGlobalStyle`
     --fontWeMedium:   500;
     --fontWeSemiBold: 600;
     --fontWeBold:     700;
-
-    --fontSiDescription:      10px;
-    --fontSiPrices:           15px;
-    --fontSiTitle:            16px;
-    --fontSiLogo:             40px;
-    --fontSiSubLogo:          20px;
-    --fontSiFooter:           12px;
-    --fontSiCartInformation:  18px;
-    --fontSiCartTitle:        13px;
-    --fontSiCartQtd:          5px;
-    --fontSiCartPrice:        14px;
-    --fontSiCartInformations: 28px;
 }
 
 

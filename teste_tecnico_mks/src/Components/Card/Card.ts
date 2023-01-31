@@ -7,7 +7,7 @@ const CardStyled = styled.li`
   justify-content: center;
   gap: 12px;
 
-  max-width: 251px;
+  max-width: 240px;
 
   position: relative;
 

@@ -11,5 +11,16 @@ const FooterStyled = styled.footer`
 
   font-size: ${fontSiFooter};
   font-weight: var(--fontWeRegular);
+
+  animation: entrance 0.3s ease-in;
+
+  @keyframes entrance {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `;
 export { FooterStyled };
