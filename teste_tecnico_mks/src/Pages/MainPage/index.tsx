@@ -189,7 +189,7 @@ const MainPage = () => {
                     >
                       {elem.amount}
                     </QuantityProduct>
-                    <PriceProduct priceProduct={elem.price} />
+                    <PriceProduct priceProduct={`R$${elem.price}`} />
                   </DivFlex>
                 </Card>
               ))
@@ -203,7 +203,7 @@ const MainPage = () => {
             {products.map((elem: IProducts) => {
               return (
                 <Card imgProduct={elem.photo} key={elem.id}>
-                  <DivFlex gap="8%">
+                  <DivFlex alignItems="center" justifyContent="space-between">
                     <TitleProduct nameProduct={elem.name} />
                     <PriceProduct priceProduct={`R$${elem.price}`} />
                   </DivFlex>

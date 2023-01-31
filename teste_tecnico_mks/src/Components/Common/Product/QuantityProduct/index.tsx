@@ -8,6 +8,7 @@ const QuantityProduct = ({
 }: IPropsChildren) => {
   return (
     <QuantitySyled>
+      <p className="quantity__product">Qtd:</p>
       <button onClick={updateProductDecrement} className="button__minus">
         {" "}
         -{" "}
