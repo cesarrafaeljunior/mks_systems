@@ -1,14 +1,13 @@
+import { IPropsSkeleton } from "../../Interfaces/Props";
 import { SkeletonStyled } from "./Skeleton";
 
-type props = {
-  width: number | string;
-  height: number | string;
-  borderRadius?: number;
-};
-
-const Skeleton = ({ width, height, borderRadius }: props) => {
+const Skeleton = ({ width, height, borderRadius }: IPropsSkeleton) => {
   return (
-    <SkeletonStyled style={{ width, height, borderRadius }}></SkeletonStyled>
+    <SkeletonStyled
+      width={width}
+      height={height}
+      borderRadius={borderRadius}
+    ></SkeletonStyled>
   );
 };
 

@@ -11,14 +11,13 @@ const CardStyled = styled.li`
 
   position: relative;
 
-  z-index: 1;
-
   padding: 1.2em;
 
   background-color: var(--white);
-
   border-radius: 8px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.135216);
+
+  z-index: 1;
 
   .box__img {
     display: flex;
@@ -41,9 +40,7 @@ const CardStyled = styled.li`
       flex-direction: row;
 
       min-width: 100%;
-      padding: 35px 0;
-
-      gap: 0;
+      padding: 35px 20px 35px 0;
 
       > button {
         top: -10px;

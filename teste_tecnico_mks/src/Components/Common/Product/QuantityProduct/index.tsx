@@ -1,11 +1,11 @@
-import { IPropsChildren } from "../../../../Interfaces/Props";
+import { IPropsQuantityProduct } from "../../../../Interfaces/Props";
 import { QuantitySyled } from "./Quantity";
 
 const QuantityProduct = ({
   children,
   updateProductIncrement,
   updateProductDecrement,
-}: IPropsChildren) => {
+}: IPropsQuantityProduct) => {
   return (
     <QuantitySyled>
       <p className="quantity__product">Qtd:</p>

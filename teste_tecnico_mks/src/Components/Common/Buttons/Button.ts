@@ -7,6 +7,10 @@ const ButtonStyled = styled.button<IButtonComponent>`
   justify-content: ${({ justifyContent }) => `${justifyContent}`};
   gap: ${({ gap }) => `${gap}`};
 
+  width: ${({ width }) => `${width}`};
+  max-width: ${({ maxWidth }) => `${maxWidth}`};
+  height: ${({ height }) => `${height}`};
+
   align-self: ${({ alignSelf }) => `${alignSelf}`};
   text-align: ${({ textAlign }) => `${textAlign}`};
 
@@ -14,10 +18,6 @@ const ButtonStyled = styled.button<IButtonComponent>`
   top: ${({ top }) => `${top}`};
   right: ${({ right }) => `${right}`};
   left: ${({ left }) => `${left}`};
-
-  width: ${({ width }) => `${width}`};
-  max-width: ${({ maxWidth }) => `${maxWidth}`};
-  height: ${({ height }) => `${height}`};
 
   margin: ${({ margin }) => `${margin}`};
   padding: ${({ padding }) => `${padding}`};
