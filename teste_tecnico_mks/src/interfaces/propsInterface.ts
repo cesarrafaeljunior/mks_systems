@@ -1,4 +1,4 @@
-import { IProducts } from "./Products";
+import { IProducts } from "./productsInterface";
 
 export interface IPropsChildren {
   children: React.ReactNode;

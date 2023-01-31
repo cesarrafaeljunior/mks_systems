@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IPropsSkeleton } from "../../Interfaces/Props";
+import { IPropsSkeleton } from "../../interfaces/propsInterface";
 
 const SkeletonStyled = styled.div<IPropsSkeleton>`
   width: ${({ width }) => `${width}`};

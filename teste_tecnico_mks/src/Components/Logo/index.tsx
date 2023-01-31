@@ -1,4 +1,4 @@
-import { LogoStyled, SubLogoStyled } from "./Logo";
+import { LogoStyled, SubLogoStyled } from "./logoStyle";
 
 interface ILogo {
   nameLogo?: string;

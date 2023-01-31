@@ -1,4 +1,4 @@
-import { IProducts } from "../../Interfaces/Products";
+import { IProducts } from "../../interfaces/productsInterface";
 
 const addProductInCart = (product: IProducts, itemsCart: IProducts[]) => {
   const foundProduct = itemsCart.find((elem) => elem.id == product.id);

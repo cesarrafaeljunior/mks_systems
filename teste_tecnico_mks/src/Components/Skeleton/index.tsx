@@ -1,5 +1,5 @@
-import { IPropsSkeleton } from "../../Interfaces/Props";
-import { SkeletonStyled } from "./Skeleton";
+import { IPropsSkeleton } from "../../interfaces/propsInterface";
+import { SkeletonStyled } from "./skeletonStyle";
 
 const Skeleton = ({ width, height, borderRadius }: IPropsSkeleton) => {
   return (

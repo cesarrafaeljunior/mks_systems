@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IProducts } from "../../Interfaces/Products";
-import { IShowcaseState } from "../../Interfaces/Slices";
+import { IProducts } from "../../interfaces/productsInterface";
+import { IShowcaseState } from "../../interfaces/slicesInterface";
 
 const initialState: IShowcaseState = { items: [], loading: true };
 
