@@ -15,6 +15,17 @@ const HeaderStyled = styled.header`
   @media (min-width: 768px) {
     padding: 1.8em 3em;
   }
+
+  animation: entrance 0.3s ease-in;
+
+  @keyframes entrance {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `;
 
 export { HeaderStyled };
