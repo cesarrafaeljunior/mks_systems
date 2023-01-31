@@ -118,8 +118,8 @@ const MainPage = () => {
         <Main>
           <DivFlex alignItems="center" justifyContent="center">
             <List>
-              {products.map((elem: IProducts) => {
-                return <Skeleton key={elem.id} width={240} height={378} />;
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((elem: number) => {
+                return <Skeleton key={elem} width={240} height={378} />;
               })}
             </List>
           </DivFlex>
