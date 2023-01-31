@@ -1,5 +1,5 @@
-import { IPropsProductInformations } from "../../../../Interfaces/Props";
-import { TitleProductStyled } from "./Title";
+import { IPropsProductInformations } from "../../../../interfaces/propsInterface";
+import { TitleProductStyled } from "./titleStyle";
 
 const TitleProduct = ({ nameProduct }: IPropsProductInformations) => {
   return <TitleProductStyled>{nameProduct}</TitleProductStyled>;

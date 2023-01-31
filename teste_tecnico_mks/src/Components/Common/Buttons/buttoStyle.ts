@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IButtonComponent } from "../../../Interfaces/Components";
+import { IButtonComponent } from "../../../interfaces/componentsInterface";
 
 const ButtonStyled = styled.button<IButtonComponent>`
   display: ${({ display }) => `${display}`};

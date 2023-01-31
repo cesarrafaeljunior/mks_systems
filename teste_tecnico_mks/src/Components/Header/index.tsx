@@ -1,6 +1,6 @@
 import { IoMdCart } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
-import { ICartState, IShowcaseState } from "../../Interfaces/Slices";
+import { ICartState, IShowcaseState } from "../../interfaces/slicesInterface";
 import { openCart } from "../../redux/Slices/cartSlice";
 import {
   ButtonStyled,

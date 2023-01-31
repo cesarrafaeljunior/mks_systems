@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { IPropsChildren } from "../../Interfaces/Props";
-import { ICartState } from "../../Interfaces/Slices";
+import { IPropsChildren } from "../../interfaces/propsInterface";
+import { ICartState } from "../../interfaces/slicesInterface";
 import { checkout } from "../../redux/Slices/cartSlice";
-import { CartStyled } from "./Cart";
+import { CartStyled } from "./cartStyled";
 
 const Cart = ({ children }: IPropsChildren) => {
   const dispatch = useDispatch();

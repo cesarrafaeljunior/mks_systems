@@ -1,5 +1,5 @@
-import { IPropsQuantityProduct } from "../../../../Interfaces/Props";
-import { QuantitySyled } from "./Quantity";
+import { IPropsQuantityProduct } from "../../../../interfaces/propsInterface";
+import { QuantitySyled } from "./quantityStyle";
 
 const QuantityProduct = ({
   children,
