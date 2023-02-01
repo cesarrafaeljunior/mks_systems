@@ -15,3 +15,6 @@
  <p>A soma total dos preços dos produtos é adicionada dinamicamente, e por fim o usuário pode finalizar sua compra.</p>
 
  <strong>Obs: Não consegui implementar os testes unitários, não entendi muito bem como funcionam as ferramentas utilizadas para fazê-los, terei de estudar melhor para aplicá-las, assim como o redux também foi um desafio para mim aplicá-lo em um aplicativo, obrigado pela oportunidade de conhecer esta ferramenta.</strong>
+
+Deploy da aplicação: <a href={https://teste-tecnico-mks-cesarrafaeljunior.vercel.app/mainPage}>Deploy</a>
+
