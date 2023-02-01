@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { App } from "./App/App";
 import { BrowserRouter } from "react-router-dom";
-import { GlobalStyle } from "./Style/Modules/Global";
+import { GlobalStyle } from "./Style/Modules/Global/global";
 import { Provider } from "react-redux";
 import rootReducer from "./redux/store";
 

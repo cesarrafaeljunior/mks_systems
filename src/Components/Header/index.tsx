@@ -2,15 +2,13 @@ import { IoMdCart } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { ICartState, IShowcaseState } from "../../interfaces/slicesInterface";
 import { openCart } from "../../redux/Slices/cartSlice";
-import {
-  ButtonStyled,
-  DivFlex,
-  IconStyled,
-  Logo,
-  SubLogo,
-  HeaderStyled,
-  Skeleton,
-} from "../index";
+import { ButtonStyled } from "../Common/Buttons/buttoStyle";
+import { DivFlex } from "../Common/Divs/divFlexStyle";
+import { IconStyled } from "../Common/Icons/iconStyles";
+import { Logo } from "../Logo";
+import { SubLogo } from "../Logo";
+import { HeaderStyled } from "./headerStyle";
+import { Skeleton } from "../Skeleton";
 
 const Header = () => {
   const dispatch = useDispatch();
