@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { App } from "./app/App";
+import { App } from "./App/App";
 import { BrowserRouter } from "react-router-dom";
-import { GlobalStyle } from "./style/Modules/Global/global";
+import { GlobalStyle } from "./Style/Modules/Global";
 import { Provider } from "react-redux";
 import rootReducer from "./redux/store";
 
