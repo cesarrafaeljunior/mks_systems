@@ -18,6 +18,7 @@ const CardStyled = styled.li`
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.135216);
 
   z-index: 1;
+  animation: cardAnimation 0.5s forwards;
 
   .box__img {
     display: flex;
@@ -87,6 +88,14 @@ const CardStyled = styled.li`
           font-size: 1em;
         }
       }
+    }
+  }
+  @keyframes cardAnimation {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
     }
   }
 `;

@@ -1,23 +1,21 @@
 import { useEffect } from "react";
 import { RiShoppingBag3Line as ShoppingBag } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Header,
-  Card,
-  Cart,
-  ButtonStyled,
-  DivFlex,
-  IconStyled,
-  DescriptionProduct,
-  PriceProduct,
-  QuantityProduct,
-  TitleProduct,
-  Footer,
-  SectionFooter,
-  List,
-  Main,
-  Skeleton,
-} from "../../components/index";
+import { Header } from "../../Components/Header";
+import { Card } from "../../Components/Card";
+import { Cart } from "../../Components/Cart";
+import { ButtonStyled } from "../../Components/Common/Buttons/buttoStyle";
+import { DivFlex } from "../../Components/Common/Divs/divFlexStyle";
+import { IconStyled } from "../../Components/Common/Icons/iconStyles";
+import { DescriptionProduct } from "../../Components/Common/Product/DescriptionProducts";
+import { PriceProduct } from "../../Components/Common/Product/PriceProduct";
+import { QuantityProduct } from "../../Components/Common/Product/QuantityProduct";
+import { TitleProduct } from "../../Components/Common/Product/TitleProductCard";
+import { Footer } from "../../Components/Footer";
+import { SectionFooter } from "../../Components/Footer/footerStyle";
+import { List } from "../../Components/List";
+import { Main } from "../../Components/Main";
+import { Skeleton } from "../../Components/Skeleton";
 import { ICartState, IShowcaseState } from "../../interfaces/slicesInterface";
 import { IProducts } from "../../interfaces/productsInterface";
 import {

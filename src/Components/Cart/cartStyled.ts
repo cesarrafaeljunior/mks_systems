@@ -22,6 +22,8 @@ const CartStyled = styled.section`
   background-color: var(--colorPrimary);
   box-shadow: -5px 0px 6px rgba(0, 0, 0, 0.13);
 
+  animation: cartAnimation 0.5s forwards;
+
   .title__cart {
     width: 90%;
 
@@ -83,6 +85,15 @@ const CartStyled = styled.section`
         background-color: var(--white);
         color: var(--black);
       }
+    }
+  }
+
+  @keyframes cartAnimation {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
     }
   }
 
