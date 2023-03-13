@@ -10,7 +10,7 @@
 - React router Dom
 - Vite
 
- <p>O aplicativo consome uma Api Rest de produtos e os exibe na tela, o usuário é capaz então de adicionar produtos no carrinho, alterar sua quantidade, eremovê-los do carrinho.</p>
+ <p>O aplicativo consome uma Api Rest de produtos e os exibe na tela, o usuário é capaz então de adicionar produtos no carrinho, alterar sua quantidade, e removê-los.</p>
 
  <p>A soma total dos preços dos produtos é adicionada dinamicamente, e por fim o usuário pode finalizar sua compra.</p>
 
